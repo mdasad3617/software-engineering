@@ -94,7 +94,7 @@ Object-oriented programming ka matlab hai ek system ko **objects ke collection**
 - **I** — Interface Segregation
 - **D** — Dependency Inversion
 
-### S matlab Single Responsibility Principle
+### S  Single Responsibility Principle
 Single responsibility principle (SRP) ka kehna hai ki ek **class** ya **module** ko sirf **ek kaam** karna chahiye. Yeh thoda **subjective** hai, isliye is principle ko reinforce kiya jata hai is heuristic se ki class ya module ke **change ka sirf ek reason** hona chahiye.
 
 Counter-example ke roop mein, ek class socho jo **database ka connection** open karta hai, **table data** pull karta hai, aur data ko **file mein write** karta hai. Is class ke change ke **multiple reasons** hote hain: **new database** adoption, **file output format** change, **ORM** use karne ka decision, etc. SRP ke terms mein, hum kehenge ki yeh class **bahut zyada kaam** kar rahi hai.
@@ -103,26 +103,26 @@ Aapke daily life mein, socho un **“duck” vehicles** ke baare mein jo kabhi k
 
 Lekin, aap inhe zyada nahi dekhte. **Lakhs families** ke paas **cars** aur **boats** dono hote hain, lekin bahut kam families yeh **ducks** khareedti hain. Jaante ho kyun? Most likely isliye kyunki koi nahi chahta ki **boat rudder** kharab hone ki wajah se woh **kaam pe drive** na kar sake. Ducks **fun** hote hain, lekin yeh bhi SRP ke **pitfalls** avoid karne ka ek **great example** hain.
 
-### O matlab Open/Closed Principle
+### O  Open/Closed Principle
 Open/Closed Principle ka kehna hai ki **code entities** ko **extension ke liye open** hona chahiye, lekin **modification ke liye closed**. More concretely, aapko aisa **class** likhna chahiye jo apna kaam **perfectly** kare aur yeh assume na kare ki log baad mein aake isme **change** karenge. Yeh **modification ke liye closed** hai, lekin isse **extend** kiya ja sakta hai, jaise **inheritance** ke through ya certain **behaviors** ko **override** ya **extend** karke. Open closed principle ke against ek example hoga ek **switch statement** jisme aapko har baar jana padta hai aur **add** karna padta hai jab aap apne **application** mein ek **menu option** add karna chahte ho.
 
 Iske real life ka ek **great example** aapke **pocket** mein hai — **smart phone**. Sabhi phones mein **app stores** hote hain aur yeh app stores aapko phone ke **base functionality** ko **extend** karne dete hain. Sure, yeh **basics** ke saath ship hota hai: **camera operation**, **actual calls**, **text messages**, etc. Lekin **app store** ke through, aap phone ke **capabilities** ko extend kar sakte ho, jaise **todo list** manage karna, **inane video games** khelna, ya **flashlight** ya **wireless access point** ke roop mein use karna.
 
 Yeh **mechanism** purely **extension** ka hai, lekin. Aisa nahi hai ki **Apple**, **Google**, aur **Microsoft** OS ka **source code** github pe daal dete hain aur aapko **invite** karte hain ki aake **games** ya **flashlight functionality** build karo. Balki, woh **core phone functionality** ko **modification ke liye closed** rakhte hain aur **extension ke liye open**.
 
-### L matlab Liskov Substitution Principle
+### L  Liskov Substitution Principle
 Liskov Substitution Principle (LSP) yahan sabse **unique** hai object-oriented programming ke liye. LSP basically kehta hai ki koi bhi **parent type** ka **child type** parent ke liye **stand in** kar sakna chahiye bina kisi cheez ke **blow up** hone ke.
 
 Dusre shabdon mein, agar aapke paas ek class hai, **Animal**, jisme ek **MakeNoise()** method hai, toh Animal ka koi bhi **subclass** reasonably MakeNoise() ko **implement** karna chahiye. **Cats** ko **meow** karna chahiye, **dogs** ko **bark** karna chahiye, etc. Aap kya nahi karenge woh hai ek **MuteMouse** class define karna jo **IDontActuallyMakeNoiseException** throw karta hai. Yeh LSP ko **violate** karta hai, aur argument hoga ki is class ka Animal se **inherit** karna ka koi **business** nahi hai.
 
 Ise picture karne ke liye, socho ki aap ek **stew** cook kar rahe ho. Agar aap mere jaise ho, toh aap usme sirf wahi cheezein daaloge jo **edible** hain kyunki aap stew ko **khaana** chahte ho bina har **bite** ko check kare ki “yeh **edible** hai kya?”
 
-### I matlab Interface Segregation Principle
+### I  Interface Segregation Principle
 Interface Segregation Principle (ISP) kehta hai ki aapko **many**, **smaller**, **client-specific interfaces** ko prefer karna chahiye over ek **larger**, **monolithic interface** ke. Short mein, aap nahi chahte ki **clients** ko un cheezon pe **depend** karna pade jo unhe **actually chahiye nahi**. Socho aapka **code** ek **bada**, **fat interface** consume kar raha hai aur aapko **annoying frequency** ke saath **re-compile/deploy** karna padta hai kyunki koi **method**, jiske baare mein aapko **parwah** bhi nahi, uska **signature** change ho gaya.
 
 Real world mein isse picture karne ke liye, socho apne **local corner restaurant** ke **menu** ke baare mein. Aapko **normal menu mainstays** dikhenge, aur phir kuch jo bas **“soup of the day”** kaha jata hai. Yeh kyun karte hain? Kyunki **soup** bahut **change** hota hai aur har roz **menu re-print** karne ka koi **sense** nahi hai. Jo **clients** soup ke baare mein **care** nahi karte, unhe iski **chinta** nahi karni padti, aur jo karte hain, woh **alag interface** use karte hain — **server** se poochke.
 
-### D matlab Dependency Inversion
+### D  Dependency Inversion
 Dependency Inversion Principle (DIP) aapko **encourage** karta hai ki aap aisa **code** likho jo **abstractions** pe depend kare, na ki **concrete details** pe. Aap isse **code** mein **recognize** kar sakte ho by looking for a **class** ya **method** jo kuch **generic** leta hai jaise **“Stream”** aur uspe **operations** perform karta hai, instead of **specific Filestream** ya **Stringstream** ya whatever **instantiate** karne ke. Yeh code ko **bahut zyada flexibility** deta hai — aap koi bhi cheez **swap in** kar sakte ho jo **Stream abstraction** ke saath **conform** karti hai aur yeh **kaam** karega.
 
 Ise **daily life** mein visualize karne ke liye, apne **local store** pe jao aur **credit card** se kuch **pay** karo. **Clerk** aapka **card** examine nahi karta aur **“Visa Machine”** nikal kar nahi laata yeh dekhne ke baad ki aapka card **Visa** hai. Woh bas aapka **card**, jo bhi ho, leta hai aur **swipe** karta hai. Aap aur **clerk** dono **credit card abstraction** pe **depend** karte ho bina **specifics** ki chinta kiye.
